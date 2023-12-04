@@ -24,11 +24,18 @@ public class SchoolsController {
     @Autowired
     private SchoolsService schoolsService;
 
-    @GetMapping
+    @GetMapping("/basicData")
     public ResponseEntity<Object> getAllSchoolsBasicData() throws SchoolNotFoundException
     {
         List<Object> schoolsList= schoolsService.getAllSchoolsBasicData();
         return ResponseEntity.status(HttpStatus.OK).body(schoolsList);
+    }
+
+    @GetMapping("/fullData/{schoolId}")
+    public ResponseEntity<Object> getSchoolsData(@PathVariable("schoolId") Long schoolId) throws SchoolNotFoundException
+    {
+        School school = schoolsService.findSchoolById(schoolId);
+        return ResponseEntity.status(HttpStatus.OK).body(school);
     }
 
     @GetMapping("/requests/{schoolId}")
@@ -37,4 +44,5 @@ public class SchoolsController {
         List<AdmissionRequest> admissionRequests = schoolsService.getAllAdmissionRequests(schoolId);
         return ResponseEntity.status(HttpStatus.OK).body(admissionRequests);
     }
+
 }

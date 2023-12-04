@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class SchoolsServiceImpl implements SchoolsService {
@@ -29,6 +30,16 @@ public class SchoolsServiceImpl implements SchoolsService {
 //           sl.get(i).setAdmissionRequests(null);
 //       }
        return sl;
+    }
+
+    @Override
+    public School findSchoolById(Long schoolId) throws SchoolNotFoundException {
+        Optional<School> school = schoolRepository.findById(schoolId);
+        if(school.isPresent())
+        {
+            return school.get();
+        }
+        throw new SchoolNotFoundException();
     }
 
     @Override
