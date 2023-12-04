@@ -19,4 +19,13 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
         ErrorMessage err = ErrorMessage.builder().errorMessage("No Schools Found").status(HttpStatus.NOT_FOUND).build();
         return ResponseEntity.status(err.getStatus()).body(err);
     }
+
+    @ExceptionHandler(AdmissionRequestNotFound.class)
+    public ResponseEntity<ErrorMessage> admissionRequestNotFound(AdmissionRequestNotFound e , WebRequest r)
+    {
+        ErrorMessage err = ErrorMessage.builder().errorMessage("No Request(s) Data available.").status(HttpStatus.NOT_FOUND).build();
+        return ResponseEntity.status(err.getStatus()).body(err);
+    }
+
+
 }

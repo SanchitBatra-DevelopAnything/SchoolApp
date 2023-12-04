@@ -1,5 +1,6 @@
 package com.sbgu.admissionservice.demo.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,18 +15,16 @@ import java.util.List;
 @Table(name = "school")
 @AllArgsConstructor
 @NoArgsConstructor
-public class School {
+public class School{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long schoolId;
-    private String name;
 
-    @OneToMany(mappedBy = "generatedFor")
+    @Embedded
+    BasicSchoolData basicData;
+
+    @OneToMany(mappedBy = "generatedFor" , fetch = FetchType.LAZY)
     private List<AdmissionRequest> admissionRequests;
 
-    private String website;
-
-    private String location_latitude;
-    private String location_longitude;
 }
