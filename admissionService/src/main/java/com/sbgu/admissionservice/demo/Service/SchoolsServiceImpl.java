@@ -31,8 +31,8 @@ public class SchoolsServiceImpl implements SchoolsService {
     }
 
     @Override
-    public List<BasicSchoolData> getAllSchoolsBasicData() throws SchoolNotFoundException {
-        List<BasicSchoolData> basic_data = schoolRepository.getAllSchoolsBasicData();
+    public List<Object> getAllSchoolsBasicData() throws SchoolNotFoundException {
+        List<Object> basic_data = schoolRepository.getAllSchoolsBasicData();
         if(basic_data.size() == 0)
         {
             throw new SchoolNotFoundException();

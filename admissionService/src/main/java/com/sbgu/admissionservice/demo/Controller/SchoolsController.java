@@ -26,7 +26,7 @@ public class SchoolsController {
     @GetMapping
     public ResponseEntity<Object> getAllSchoolsBasicData() throws SchoolNotFoundException
     {
-        List<BasicSchoolData> schoolsList= schoolsService.getAllSchoolsBasicData();
+        List<Object> schoolsList= schoolsService.getAllSchoolsBasicData();
         return ResponseEntity.status(HttpStatus.OK).body(schoolsList);
     }
 

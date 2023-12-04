@@ -12,5 +12,5 @@ public interface SchoolsService {
 
     List<AdmissionRequest> getAllAdmissionRequests(Long schoolId);
 
-    List<BasicSchoolData> getAllSchoolsBasicData() throws SchoolNotFoundException;
+    List<Object> getAllSchoolsBasicData() throws SchoolNotFoundException;
 }

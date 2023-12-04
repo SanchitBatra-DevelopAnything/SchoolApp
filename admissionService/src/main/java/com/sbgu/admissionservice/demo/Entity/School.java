@@ -27,4 +27,8 @@ public class School{
     @OneToMany(mappedBy = "generatedFor" , fetch = FetchType.LAZY)
     private List<AdmissionRequest> admissionRequests;
 
+    @OneToMany
+    @JoinColumn(name = "school_id") //unidirectional mapping.
+    private List<Criteria> criterias;
+
 }

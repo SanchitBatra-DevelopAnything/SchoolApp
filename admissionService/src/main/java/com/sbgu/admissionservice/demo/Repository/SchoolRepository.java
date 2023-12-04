@@ -10,6 +10,6 @@ import java.util.List;
 public interface SchoolRepository extends JpaRepository<School, Long> {
 
 
-    @Query(value = "SELECT u.basicData FROM School u")
-    List<BasicSchoolData> getAllSchoolsBasicData();
+    @Query(value = "SELECT u.schoolId as school_id ,u.basicData FROM School u")
+    List<Object> getAllSchoolsBasicData();
 }
