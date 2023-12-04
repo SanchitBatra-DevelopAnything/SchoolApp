@@ -1,8 +1,11 @@
 package com.sbgu.admissionservice.demo.Entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
@@ -10,6 +13,8 @@ import java.util.List;
 @Table(name = "student")
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Student {
 
     @Id
@@ -29,5 +34,6 @@ public class Student {
     private String location_longitude;
 
     @OneToMany(mappedBy = "generatedBy")
+    @JsonManagedReference
     private List<AdmissionRequest> requestsList;
 }

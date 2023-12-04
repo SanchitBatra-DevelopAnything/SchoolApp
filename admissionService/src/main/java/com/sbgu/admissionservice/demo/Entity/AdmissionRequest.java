@@ -1,8 +1,11 @@
 package com.sbgu.admissionservice.demo.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.query.sqm.tree.AbstractSqmDmlStatement;
 
 import java.util.List;
@@ -11,6 +14,8 @@ import java.util.List;
 @Builder
 @Entity
 @Table(name = "admissions")
+@AllArgsConstructor
+@NoArgsConstructor
 public class AdmissionRequest {
 
     @Id
@@ -28,6 +33,7 @@ public class AdmissionRequest {
 
     @ManyToOne
     @JoinColumn(name = "SCHOOL_ID")
+    @JsonBackReference
     private School generatedFor;
 
     @OneToOne

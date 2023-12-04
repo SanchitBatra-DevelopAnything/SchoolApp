@@ -1,8 +1,10 @@
 package com.sbgu.admissionservice.demo.Entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
@@ -10,6 +12,8 @@ import java.util.List;
 @Table(name = "documents")
 @Builder
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Document {
 
     @Id
