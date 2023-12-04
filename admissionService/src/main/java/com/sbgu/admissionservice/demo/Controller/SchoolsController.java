@@ -3,6 +3,7 @@ package com.sbgu.admissionservice.demo.Controller;
 import com.sbgu.admissionservice.demo.Entity.AdmissionRequest;
 import com.sbgu.admissionservice.demo.Entity.BasicSchoolData;
 import com.sbgu.admissionservice.demo.Entity.School;
+import com.sbgu.admissionservice.demo.Error.AdmissionRequestNotFound;
 import com.sbgu.admissionservice.demo.Error.SchoolNotFoundException;
 import com.sbgu.admissionservice.demo.Service.SchoolsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class SchoolsController {
     }
 
     @GetMapping("/requests/{schoolId}")
-    public ResponseEntity<Object> getAllAdmissionRequests(@PathVariable("schoolId") Long schoolId)
+    public ResponseEntity<Object> getAllAdmissionRequests(@PathVariable("schoolId") Long schoolId) throws AdmissionRequestNotFound
     {
         List<AdmissionRequest> admissionRequests = schoolsService.getAllAdmissionRequests(schoolId);
         return ResponseEntity.status(HttpStatus.OK).body(admissionRequests);

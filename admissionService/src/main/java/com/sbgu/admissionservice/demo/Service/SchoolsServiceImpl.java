@@ -3,6 +3,7 @@ package com.sbgu.admissionservice.demo.Service;
 import com.sbgu.admissionservice.demo.Entity.AdmissionRequest;
 import com.sbgu.admissionservice.demo.Entity.BasicSchoolData;
 import com.sbgu.admissionservice.demo.Entity.School;
+import com.sbgu.admissionservice.demo.Error.AdmissionRequestNotFound;
 import com.sbgu.admissionservice.demo.Error.SchoolNotFoundException;
 import com.sbgu.admissionservice.demo.Repository.SchoolRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +42,12 @@ public class SchoolsServiceImpl implements SchoolsService {
     }
 
     @Override
-    public List<AdmissionRequest> getAllAdmissionRequests(Long schoolId) {
-        return null;
+    public List<AdmissionRequest> getAllAdmissionRequests(Long schoolId) throws AdmissionRequestNotFound {
+        List<AdmissionRequest> admissionRequests = schoolRepository.getAllAdmissionRequests(schoolId);
+        if(admissionRequests.size() == 0)
+        {
+            throw new AdmissionRequestNotFound();
+        }
+        return admissionRequests;
     }
 }
