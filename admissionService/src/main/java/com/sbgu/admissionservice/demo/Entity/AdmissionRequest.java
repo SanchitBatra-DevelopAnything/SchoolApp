@@ -3,6 +3,7 @@ package com.sbgu.admissionservice.demo.Entity;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;
+import org.hibernate.query.sqm.tree.AbstractSqmDmlStatement;
 
 import java.util.List;
 
@@ -32,4 +33,9 @@ public class AdmissionRequest {
     @OneToOne
     @JoinColumn(name = "generated_appointment_id")
     private Appointment appointment;
+
+    @ManyToMany
+    @JoinTable(name  = "request_discrepancy", joinColumns = @JoinColumn(name = "discrepancy_id"),inverseJoinColumns = @JoinColumn(name = "admission_request_id"))
+    private List<Discrepancy> discrepancies;
+
 }

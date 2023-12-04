@@ -19,4 +19,9 @@ public class School {
 
     @OneToMany(mappedBy = "generatedFor")
     private List<AdmissionRequest> admissionRequests;
+
+    private String website;
+
+    private String location_latitude;
+    private String location_longitude;
 }
