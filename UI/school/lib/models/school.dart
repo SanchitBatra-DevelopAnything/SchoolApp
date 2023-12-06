@@ -5,9 +5,13 @@ class School {
   final String location_longitude;
   final String location_latitude;
   final String address;
+  final List<dynamic> eligibilityCriteria;
+  final List<dynamic> documentsRequired;
 
   School(
       {required this.id,
+      required this.eligibilityCriteria,
+      required this.documentsRequired,
       required this.name,
       required this.website,
       required this.location_latitude,

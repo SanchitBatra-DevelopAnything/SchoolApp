@@ -12,7 +12,7 @@ class SchoolProvider with ChangeNotifier {
 
   Future<void> fetchSchools() async {
     const url =
-        "https://schoolsapp-61838-default-rtdb.firebaseio.com/onlySchools.json";
+        "https://schoolsapp-61838-default-rtdb.firebaseio.com/schools.json";
     try {
       final response = await http.get(Uri.parse(url));
       final List<School> loadedSchools = [];
@@ -21,6 +21,8 @@ class SchoolProvider with ChangeNotifier {
         loadedSchools.add(School(
             id: schoolId,
             address: schoolData['address'],
+            eligibilityCriteria: schoolData['eligibilityCriteria'],
+            documentsRequired: schoolData['documentsRequired'],
             name: schoolData['name'],
             website: schoolData['website'],
             location_latitude: schoolData['location_latitude'],

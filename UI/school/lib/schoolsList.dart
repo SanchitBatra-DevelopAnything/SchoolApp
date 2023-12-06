@@ -46,6 +46,10 @@ class _SchoolsListState extends State<SchoolsList> {
                   return ListTile(
                     title: Text(schoolList[index].name),
                     subtitle: Text(schoolList[index].address),
+                    onTap: () => {
+                      Navigator.of(context).pushNamed('/school-detail',
+                          arguments: {'schoolObject': schoolList[index]}),
+                    },
                   );
                 },
               ));

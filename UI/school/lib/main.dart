@@ -5,6 +5,8 @@ import 'package:provider/provider.dart';
 import 'package:school/providers/school.dart';
 import 'package:school/schoolsList.dart';
 
+import 'SchoolDetails.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -52,6 +54,7 @@ class MaterialAppWithInitialRoute extends StatelessWidget {
               initialRoute: snapshot.data.toString(),
               routes: {
                 '/': (context) => SchoolsList(),
+                '/school-detail': (context) => SchoolDetails(),
               },
             );
           } else {
@@ -63,6 +66,7 @@ class MaterialAppWithInitialRoute extends StatelessWidget {
               initialRoute: '/',
               routes: {
                 '/': (context) => SchoolsList(),
+                '/school-detail': (context) => SchoolDetails(),
               },
             );
           }
