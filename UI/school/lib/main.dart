@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:school/documentsPage.dart';
 import 'package:school/providers/school.dart';
 import 'package:school/schoolsList.dart';
 
@@ -55,6 +56,7 @@ class MaterialAppWithInitialRoute extends StatelessWidget {
               routes: {
                 '/': (context) => SchoolsList(),
                 '/school-detail': (context) => SchoolDetails(),
+                '/upload-documents': (context) => DocumentsPage(),
               },
             );
           } else {
@@ -67,6 +69,7 @@ class MaterialAppWithInitialRoute extends StatelessWidget {
               routes: {
                 '/': (context) => SchoolsList(),
                 '/school-detail': (context) => SchoolDetails(),
+                '/upload-documents': (context) => DocumentsPage(),
               },
             );
           }

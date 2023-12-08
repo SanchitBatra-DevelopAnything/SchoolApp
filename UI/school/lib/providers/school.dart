@@ -10,6 +10,18 @@ class SchoolProvider with ChangeNotifier {
     return [..._schoolList];
   }
 
+  List<School> _selectedSchools = [];
+
+  School get selectedSchool {
+    return _selectedSchools[0];
+  }
+
+  set setSelectedSchool(School s) {
+    _selectedSchools = [];
+    _selectedSchools.add(s);
+    notifyListeners();
+  }
+
   Future<void> fetchSchools() async {
     const url =
         "https://schoolsapp-61838-default-rtdb.firebaseio.com/schools.json";
@@ -34,4 +46,6 @@ class SchoolProvider with ChangeNotifier {
       throw error;
     }
   }
+
+  // setSelectedSchool(School schoolList) {}
 }

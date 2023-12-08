@@ -47,6 +47,8 @@ class _SchoolsListState extends State<SchoolsList> {
                     title: Text(schoolList[index].name),
                     subtitle: Text(schoolList[index].address),
                     onTap: () => {
+                      Provider.of<SchoolProvider>(context, listen: false)
+                          .setSelectedSchool = schoolList[index],
                       Navigator.of(context).pushNamed('/school-detail',
                           arguments: {'schoolObject': schoolList[index]}),
                     },

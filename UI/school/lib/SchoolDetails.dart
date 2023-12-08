@@ -85,7 +85,9 @@ class SchoolDetails extends StatelessWidget {
               Expanded(
                 flex: 1,
                 child: ElevatedButton(
-                    onPressed: () => {},
+                    onPressed: () => {
+                          Navigator.of(context).pushNamed('/upload-documents'),
+                        },
                     child: Text(
                       "Upload Documents",
                       style: TextStyle(color: Colors.white),
